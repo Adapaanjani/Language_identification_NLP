@@ -1,4 +1,4 @@
-# NLP Audio Language Detection V6
+# NLP Audio Language Detection 
 
 ## Overview
 This project focuses on detecting the language of an audio file using NLP techniques and deep learning models. The implementation includes preprocessing audio data, training a classification model, and evaluating its performance.
