@@ -1,30 +1,79 @@
-# Audio-language-identification
+# NLP Audio Language Detection V6
 
-## Objective
-Language Identification (LID) is broadly defined as recognizing the language of a given speech utterance. It has numerous applications in automated language and speech recognition, multilingual machine translations, speech-to-speech translations, and emergency call routing. In this project, we will try to classify five languages( Hindi, Irish, Hungarian, Japanese, Punjabi) from the Audio clips used from open-source dataset Common Voice. We will implement a three models (Resnet50, Inception V3 and a basic CNN), and train them to classify the languages using Keras. 
+## Overview
+This project focuses on detecting the language of an audio file using NLP techniques and deep learning models. The implementation includes preprocessing audio data, training a classification model, and evaluating its performance.
 
-## Dataset
-Data Folder contains the data files in mp3 format already segregated into respective language folders. COMMON VOICE Dataset originally contains large no of files and has uneven distribution among languages. So a subset of 200 files is taken for each language. 
-The `validated.tsv` file is used to map the audio files to the language spoken in it. present separately in each language folder.
+## Features
+- Audio data preprocessing with `librosa`
+- Feature extraction using Mel-frequency cepstral coefficients (MFCC)
+- Deep learning model built with TensorFlow and Keras
+- Hyperparameter tuning with `GridSearchCV`
+- Evaluation using classification reports and confusion matrices
 
-Train and test folder are created by the code dividing the train and test files in desired ratio.
+## Installation
+To set up the project, install the required dependencies:
+```sh
+pip install numpy pandas librosa tensorflow scikeras tqdm seaborn matplotlib scikit-learn
+```
 
-## Requirements
+## Usage
+Run the notebook step by step to:
+1. Import dependencies
+2. Load and preprocess audio data
+3. Extract features using MFCC
+4. Train a deep learning model
+5. Evaluate model performance
+
+## Running Commands
+### Install Dependencies
+Run this command to install all necessary Python packages:
+```sh
+pip install numpy pandas librosa tensorflow scikeras tqdm seaborn matplotlib scikit-learn
+```
+
+### Verify Installation
+After installing, you can check if the libraries are properly installed by running:
+```sh
+python -c "import numpy; import pandas; import librosa; import tensorflow; import sklearn; print('All dependencies installed successfully!')"
+```
+
+### Run Jupyter Notebook, Google Colab, or VS Code
+
+#### Jupyter Notebook
+If you are using Jupyter Notebook, launch it using:
+```sh
+jupyter notebook
+```
+Then, open `My NLP.ipynb` and execute the cells step by step.
+
+#### Google Colab
+You can also run the notebook on Google Colab. Upload `My NLP.ipynb` to your Google Drive and open it in Colab.
+
+#### VS Code
+If you prefer VS Code, install the Jupyter extension and open the notebook directly in the editor.
+
+## Dependencies
+- Python 3.9.4
 - TensorFlow
-- librosa
-- Python 2.7+
+- NumPy
+- Pandas
+- Librosa
+- Matplotlib
+- Scikit-learn
+- Seaborn
+- TQDM
+- Scikeras
+
+## Model Architecture
+- Sequential Neural Network
+- Convolutional layers (Conv2D)
+- Pooling layers (MaxPool2D)
+- Fully connected layers (Dense)
+- Dropout for regularization
+- Batch Normalization
+
+## Results
+The model's performance is assessed using classification reports and confusion matrices. Adjustments to hyperparameters can be made to optimize accuracy.
 
 
-## Sample length
-Audio sample varies from 3 sec to 7sec.
-## Audio Format
-The wav files have 22500 sampling rate, single channel.
 
-## Notes about the code
-Scroll down the warning messages in code.
-code works in following manner:-
-
-- Firstly the files from data folder are segregated into train and test folders. 
-- Then to prepare input for the models Spectrogram images are generated with and without noise for the same audio file.
-- Using these spectrogram files models are trained.
-- at last models are tested using test folder files.
